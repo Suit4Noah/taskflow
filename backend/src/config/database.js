@@ -1,0 +1,51 @@
+require('dotenv').config();
+const { Sequelize } = require('sequelize');
+
+const database = process.env.DB_NAME || 'taskflow_db';
+const username = process.env.DB_USER || 'root';
+const password = process.env.DB_PASSWORD || 'root';
+const host = process.env.DB_HOST || 'localhost';
+const port = process.env.DB_PORT || 3306;
+
+const sequelize = new Sequelize(database, username, password, {
+  host: host,
+  port: port,
+  dialect: 'mysql',
+  logging: process.env.NODE_ENV === 'development' ? console.log : false,
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  },
+  define: {
+    timestamps: true,
+    underscored: true
+  }
+});
+
+const mysql = require('mysql2/promise');
+
+const connectDatabase = async () => {
+  try {
+    // Ensure DB exists before Sequelize connects to it
+    const connection = await mysql.createConnection({
+      host: host,
+      port: port,
+      user: username,
+      password: password
+    });
+    await connection.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`);
+    await connection.end();
+
+    await sequelize.authenticate();
+    console.log('Database connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error.message);
+  }
+};
+
+module.exports = {
+  sequelize,
+  connectDatabase
+};
