@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Empty state placeholder component.
+ * Empty state placeholder component. just for testing
  */
 const EmptyState = ({ message }) => {
   return (
