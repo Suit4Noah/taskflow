@@ -5,9 +5,7 @@ import React from 'react';
  * 
  * once more please
  * 
- * once more please again
- * 
- * once more please!
+ *
  */
 const EmptyState = ({ message }) => {
   return (
