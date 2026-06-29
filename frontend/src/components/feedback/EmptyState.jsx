@@ -1,12 +1,7 @@
 import React from 'react';
 
 /**
- * Empty state placeholder component. just for testing agin and you know why\'
- * 
- * once more please
- * xcfmxcfmvopfdvjmoidfjmv
- * sdfjmsdofnjm
- * sdfoisejf9sjefd
+ * Empty state placeholder component. 
  *
  */
 const EmptyState = ({ message }) => {
