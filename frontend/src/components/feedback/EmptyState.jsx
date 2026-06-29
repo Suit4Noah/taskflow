@@ -2,9 +2,7 @@ import React from 'react';
 
 /**
  * Empty state placeholder component. 
- * AHH! HEre we godkbjf jgbjsdbgjbds
- * fdlkdflokgjmfdog
- *
+ * AHH! HEre 
  */
 const EmptyState = ({ message }) => {
   return (
