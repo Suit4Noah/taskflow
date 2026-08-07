@@ -5,7 +5,7 @@ import AppRoutes from './routes/AppRoutes';
 function App() {
   return (
     <>
-      {/* Toast notifications container */}
+      {/* Toast notifications container just for */}
       <Toaster
         position="top-right"
         toastOptions={{
